@@ -1,29 +1,25 @@
 <?php
-    include_once ('humano.php');
+    require("conexion.php");
 
-    if(isset($_GET['palabra'])){
-        $palabra = $_GET['palabra'];
-        if(isset($_GET['tipo'])){
-            $tipo = $_GET['tipo'];
-            if($tipo == 'mayusculas'){
-                echo "la palabra en ".$tipo." es: ".strtoupper($palabra);
-            }else if($tipo == 'minusculas'){
-                echo "la palabra en ".$tipo." es: ".strtolower($palabra);
-            }
-        }
-        $palabra = strtolower($palabra);
+    $nombre = "";
+    $edad =  "";
+
+
+    if (isset($_POST['nombre'])) {
+        $nombre = $_POST['nombre'];
     }
 
-    $persona = new Humano();
-    $persona->nombre=$_POST['nombre'];
-    $persona->apellido=$_POST['apellido'];
-    $persona->edad=$_POST['edad'];
-    $persona->sexo=$_POST['sexo'];
-    $persona->pais=$_POST['pais'];
-    $persona->imprimir();
+    if (isset($_POST['edad'])) {
+        $edad = $_POST['edad'];
+    }
 
+    echo json_encode($nombre);
+    echo json_encode($edad);
 
-
-
-
+    $sql = "INSERT INTO personas (id,nombre, edad) VALUES ('', '$nombre', '$edad')";
+    if (mysqli_query($conn, $sql)) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
 ?>

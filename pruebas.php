@@ -28,7 +28,7 @@
     echo json_encode($fecha);
     echo json_encode($hash);
 
-    $sql = "INSERT INTO personas (id, nombre, edad, contra) VALUES ('', '$nombre', '$edad', '$hash')";
+    $sql = "INSERT INTO personas (id, nombre, edad, fecha, contra) VALUES ('', '$nombre', '$edad', '$fecha', '$hash')";
     if (mysqli_query($conn, $sql)) {
         echo "New record created successfully";
     } else {

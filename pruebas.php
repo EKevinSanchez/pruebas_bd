@@ -14,8 +14,8 @@
     if (isset($_POST['edad'])) {
         $edad = $_POST['edad'];
     }
-    if (isset($_POST['fecha'])) {
-        $fecha = $_POST['fecha'];
+    if (isset($_POST['date'])) {
+        $fecha = $_POST['date'];
     }
     if (isset($_POST['password'])) {
         $password = $_POST['password'];

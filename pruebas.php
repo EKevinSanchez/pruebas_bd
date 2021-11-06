@@ -3,6 +3,7 @@
 
     $nombre = "";
     $edad =  "";
+    $fecha = "";
     $passwords = "";
 
 
@@ -13,6 +14,9 @@
     if (isset($_POST['edad'])) {
         $edad = $_POST['edad'];
     }
+    if (isset($_POST['fecha'])) {
+        $fecha = $_POST['fecha'];
+    }
     if (isset($_POST['password'])) {
         $password = $_POST['password'];
     }
@@ -21,6 +25,8 @@
 
     echo json_encode($nombre);
     echo json_encode($edad);
+    echo json_encode($fecha);
+    echo json_encode($hash);
 
     $sql = "INSERT INTO personas (id, nombre, edad, contra) VALUES ('', '$nombre', '$edad', '$hash')";
     if (mysqli_query($conn, $sql)) {

@@ -12,6 +12,7 @@
     <form action="pruebas.php" method="post">
         <input type="text" name="nombre" placeholder="Nombre">
         <input type="text" name="edad" placeholder="Edad">
+        <input type="date" name="date" id="date">
         <input type="password" name="password" placeholder="contraseña">
         <input type="submit" name="submit" value="Enviar">
     </form>
